@@ -1,4 +1,4 @@
-import heroImage from "../assets/hero.jpg";
+import heroImage from "../assets/hero.png";
 import NetworkBackground from "./NetworkBackground";
 
 export default function About() {
