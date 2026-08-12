@@ -20,7 +20,7 @@ export default function Hero() {
       />
 
       <div className="relative mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-12">
-        <div className="lg:col-span-8">
+        <div className="lg:col-span-7">
           <p
             className={`text-sm text-muted transition-all duration-700 ease-out ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
@@ -50,11 +50,11 @@ export default function Hero() {
         </div>
 
         <div
-          className={`lg:col-span-4 transition-all delay-500 duration-1000 ease-out ${
+          className={`lg:col-span-5 transition-all delay-500 duration-1000 ease-out ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           }`}
         >
-          <div className="group relative ml-auto mt-10 w-40 sm:w-52 lg:mt-28 lg:w-full lg:max-w-[15rem]">
+          <div className="group relative ml-auto mt-10 w-56 sm:w-72 lg:mt-16 lg:w-full lg:max-w-[22rem]">
             <div className="relative aspect-[4/5] overflow-hidden border border-line bg-surface">
               <img
                 src={heroImage}
