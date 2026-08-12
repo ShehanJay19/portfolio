@@ -1,22 +1,43 @@
+import {
+  SiPython,
+  SiCplusplus,
+  SiTypescript,
+  SiTensorflow,
+  SiPytorch,
+  SiScikitlearn,
+  SiOpencv,
+  SiReact,
+  SiNextdotjs,
+  SiLaravel,
+  SiFastapi,
+  SiSqlalchemy,
+  SiMysql,
+  SiPostgresql,
+  SiMongodb,
+  SiGit,
+  SiGithub,
+  SiJira,
+} from "react-icons/si";
+import { DiJava } from "react-icons/di";
 import Reveal from "./Reveal";
 
 const skillGroups = [
   {
     label: "Languages",
     items: [
-      { name: "Python", mark: "Py" },
-      { name: "Java", mark: "Jv" },
-      { name: "C++", mark: "C+" },
-      { name: "TypeScript", mark: "Ts" },
+      { name: "Python", Icon: SiPython },
+      { name: "Java", Icon: DiJava },
+      { name: "C++", Icon: SiCplusplus },
+      { name: "TypeScript", Icon: SiTypescript },
     ],
   },
   {
     label: "AI / ML",
     items: [
-      { name: "TensorFlow", mark: "Tf" },
-      { name: "PyTorch", mark: "Pt" },
-      { name: "Scikit-learn", mark: "Sk" },
-      { name: "OpenCV", mark: "Cv" },
+      { name: "TensorFlow", Icon: SiTensorflow },
+      { name: "PyTorch", Icon: SiPytorch },
+      { name: "Scikit-learn", Icon: SiScikitlearn },
+      { name: "OpenCV", Icon: SiOpencv },
       { name: "Computer Vision", mark: "Vi" },
       { name: "LLMs / NLP", mark: "Ai" },
     ],
@@ -24,30 +45,37 @@ const skillGroups = [
   {
     label: "Web & backend",
     items: [
-      { name: "React", mark: "Re" },
-      { name: "Next.js", mark: "Nx" },
-      { name: "Laravel", mark: "Lv" },
-      { name: "FastAPI", mark: "Fa" },
-      { name: "SQLAlchemy", mark: "Sq" },
+      { name: "React", Icon: SiReact },
+      { name: "Next.js", Icon: SiNextdotjs },
+      { name: "Laravel", Icon: SiLaravel },
+      { name: "FastAPI", Icon: SiFastapi },
+      { name: "SQLAlchemy", Icon: SiSqlalchemy },
     ],
   },
   {
     label: "Data",
     items: [
-      { name: "MySQL", mark: "My" },
-      { name: "PostgreSQL", mark: "Pg" },
-      { name: "MongoDB", mark: "Mo" },
+      { name: "MySQL", Icon: SiMysql },
+      { name: "PostgreSQL", Icon: SiPostgresql },
+      { name: "MongoDB", Icon: SiMongodb },
     ],
   },
   {
     label: "Tools",
     items: [
-      { name: "Git", mark: "Gt" },
-      { name: "GitHub", mark: "Gh" },
-      { name: "Jira", mark: "Ji" },
+      { name: "Git", Icon: SiGit },
+      { name: "GitHub", Icon: SiGithub },
+      { name: "Jira", Icon: SiJira },
     ],
   },
 ];
+
+function SkillMark({ item }) {
+  if (item.Icon) {
+    return <item.Icon className="h-3.5 w-3.5" />;
+  }
+  return <span className="font-serif text-[11px]">{item.mark}</span>;
+}
 
 export default function About() {
   return (
@@ -93,8 +121,8 @@ export default function About() {
                 <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-3">
                   {group.items.map((item) => (
                     <li key={item.name} className="group flex items-center gap-2">
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center border border-line font-serif text-[11px] text-muted transition-colors duration-300 group-hover:border-accent group-hover:text-accent">
-                        {item.mark}
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center border border-line text-muted transition-colors duration-300 group-hover:border-accent group-hover:text-accent">
+                        <SkillMark item={item} />
                       </span>
                       <span className="text-sm text-ink">{item.name}</span>
                     </li>
