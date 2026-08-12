@@ -4,7 +4,7 @@ const email = "shehanjay1921@gmail.com";
 
 const socials = [
   { label: "GitHub", href: "https://github.com/ShehanJay19" },
-  { label: "LinkedIn", href: "https://linkedin.com/in/Shehan Jayasinghe" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/shehan-jayasinghe-6b4a122ba/" },
 ];
 
 export default function Contact() {
