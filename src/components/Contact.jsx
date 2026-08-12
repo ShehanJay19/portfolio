@@ -1,59 +1,56 @@
-import NetworkBackground from "./NetworkBackground";
+import Reveal from "./Reveal";
+
+const email = "shehanjay1921@gmail.com";
+
+const socials = [
+  { label: "GitHub", href: "https://github.com/ShehanJay19" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/shehan-jayasinghe-6b4a122ba/" },
+];
 
 export default function Contact() {
-	const links = [
-		{ label: "Email", value: "shehanjay1921@gmail.com", href: "mailto:shehanjay1921@gmail.com" },
-		{ label: "GitHub", value: "github.com/ShehanJay19", href: "https://github.com/ShehanJay19" },
-		{ label: "LinkedIn", value: "linkedin.com/in/Shehan Jayasinghe", href: "https://linkedin.com/in/Shehan Jayasinghe" },
-	];
+  return (
+    <section
+      id="contact"
+      className="relative flex min-h-[80vh] flex-col items-center justify-center overflow-hidden px-6 py-28 text-center"
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-[-14rem] left-1/2 h-[30rem] w-[30rem] -translate-x-1/2 rounded-full bg-accent/10 blur-[120px]"
+      />
 
-	return (
-		<section id="contact" className="relative py-24 px-6 text-white overflow-hidden">
-			<div className="absolute inset-0 bg-gradient-to-b from-[#0c0614] via-[#0b0613] to-[#09040f]" />
-			<NetworkBackground />
-			<div className="relative z-10 max-w-6xl mx-auto grid lg:grid-cols-12 gap-8 items-center">
-				<div className="lg:col-span-5">
-					<div className="inline-flex rounded-full border border-rose-200/30 bg-rose-300/10 px-4 py-1 text-xs uppercase tracking-[0.22em] text-rose-100/90">
-						Contact
-					</div>
+      <Reveal className="relative flex flex-col items-center">
+        <p className="flex items-center gap-3 text-sm text-muted">
+          <span className="h-px w-8 bg-accent" />
+          Contact
+          <span className="h-px w-8 bg-accent" />
+        </p>
 
-					<h2 className="mt-5 text-3xl md:text-5xl font-bold leading-tight">
-						Let&apos;s build something
-						<span className="block bg-gradient-to-r from-rose-200 via-fuchsia-200 to-violet-200 bg-clip-text text-transparent">
-							useful and beautiful
-						</span>
-					</h2>
+        <h2 className="mt-8 max-w-2xl font-serif text-4xl font-normal leading-tight text-ink md:text-6xl">
+          Let’s build something worth shipping.
+        </h2>
 
-					<p className="mt-5 text-base md:text-lg text-gray-200/90 max-w-xl">
-						I&apos;m open to internships, collaborations, and opportunities where I can
-						contribute to AI, web development, and product-focused engineering.
-					</p>
-				</div>
+        <a
+          href={`mailto:${email}`}
+          className="group mt-10 font-serif text-2xl text-ink transition-colors duration-300 hover:text-accent sm:text-3xl"
+        >
+          {email}
+          <span className="ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1">
+            →
+          </span>
+        </a>
 
-				<div className="lg:col-span-7 rounded-3xl border border-white/15 bg-white/10 backdrop-blur-md p-6 md:p-8 shadow-2xl shadow-black/20">
-					<div className="grid gap-4">
-						{links.map((link) => (
-							<a
-								key={link.label}
-								href={link.href}
-								className="flex items-center justify-between rounded-2xl border border-white/15 bg-black/15 px-4 py-4 transition hover:bg-white/10"
-							>
-								<div>
-									<p className="text-xs uppercase tracking-[0.2em] text-rose-100/70">{link.label}</p>
-									<p className="mt-1 text-sm md:text-base text-white">{link.value}</p>
-								</div>
-								<span className="text-rose-100/75">↗</span>
-							</a>
-						))}
-					</div>
-
-					<div className="mt-6 rounded-2xl border border-rose-200/25 bg-gradient-to-br from-rose-300/15 to-fuchsia-300/10 p-5">
-						<p className="text-sm md:text-base text-rose-50/95">
-							Prefer a faster response? Email is the best place to reach me.
-						</p>
-					</div>
-				</div>
-			</div>
-		</section>
-	);
+        <div className="mt-10 flex items-center gap-8">
+          {socials.map((social) => (
+            <a
+              key={social.label}
+              href={social.href}
+              className="text-sm text-muted transition-colors duration-300 hover:text-accent"
+            >
+              {social.label}
+            </a>
+          ))}
+        </div>
+      </Reveal>
+    </section>
+  );
 }

@@ -1,5 +1,19 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap");
+
+@theme {
+  --color-bg: #0a0a0a;
+  --color-surface: #121212;
+  --color-line: rgba(237, 237, 236, 0.1);
+  --color-line-strong: rgba(237, 237, 236, 0.22);
+  --color-ink: #ededec;
+  --color-muted: #8c8c88;
+  --color-accent: #d97757;
+  --color-accent-soft: rgba(217, 119, 87, 0.12);
+
+  --font-sans: "Inter", "Segoe UI", sans-serif;
+  --font-serif: "Fraunces", "Georgia", serif;
+}
 
 html {
   scroll-behavior: smooth;
@@ -8,5 +22,66 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  font-family: "Sora", "Segoe UI", sans-serif;
+  background-color: var(--color-bg);
+  background-image: radial-gradient(circle at 1px 1px, rgba(237, 237, 236, 0.06) 1px, transparent 0);
+  background-size: 32px 32px;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: #0a0a0a;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-line-strong);
+  border-radius: 999px;
+}
+
+:focus-visible {
+  outline: 1px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Scroll-reveal primitive: toggled by the useReveal hook via the
+   `is-visible` class, kept in CSS so components stay animation-agnostic. */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Duotone photo treatment: maps a photo into the site's own bg/accent
+   palette via a blend-mode tint, instead of sitting on the page as a
+   plain photo. */
+.duotone-photo {
+  filter: grayscale(1) contrast(1.15) brightness(0.95);
+}
+
+.duotone-tint {
+  background: linear-gradient(160deg, var(--color-bg) 0%, var(--color-accent) 140%);
+  mix-blend-mode: color;
 }
