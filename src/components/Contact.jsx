@@ -1,65 +1,56 @@
 import Reveal from "./Reveal";
 
-const links = [
-  { label: "Email", value: "shehanjay1921@gmail.com", href: "mailto:shehanjay1921@gmail.com" },
-  { label: "GitHub", value: "github.com/ShehanJay19", href: "https://github.com/ShehanJay19" },
-  {
-    label: "LinkedIn",
-    value: "linkedin.com/in/Shehan Jayasinghe",
-    href: "https://linkedin.com/in/Shehan Jayasinghe",
-  },
+const email = "shehanjay1921@gmail.com";
+
+const socials = [
+  { label: "GitHub", href: "https://github.com/ShehanJay19" },
+  { label: "LinkedIn", href: "https://linkedin.com/in/Shehan Jayasinghe" },
 ];
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative overflow-hidden border-t border-line px-6 py-28 md:py-36">
+    <section
+      id="contact"
+      className="relative flex min-h-[80vh] flex-col items-center justify-center overflow-hidden px-6 py-28 text-center"
+    >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-[-12rem] left-[-10rem] h-[30rem] w-[30rem] rounded-full bg-accent/10 blur-[120px]"
+        className="pointer-events-none absolute bottom-[-14rem] left-1/2 h-[30rem] w-[30rem] -translate-x-1/2 rounded-full bg-accent/10 blur-[120px]"
       />
 
-      <div className="relative mx-auto max-w-6xl">
-        <Reveal>
-          <p className="flex items-center gap-3 text-sm text-muted">
-            <span className="h-px w-8 bg-accent" />
-            Contact
-          </p>
+      <Reveal className="relative flex flex-col items-center">
+        <p className="flex items-center gap-3 text-sm text-muted">
+          <span className="h-px w-8 bg-accent" />
+          Contact
+          <span className="h-px w-8 bg-accent" />
+        </p>
 
-          <h2 className="mt-6 max-w-xl font-serif text-3xl font-normal leading-tight text-ink md:text-5xl">
-            Let&rsquo;s build something useful and beautiful.
-          </h2>
+        <h2 className="mt-8 max-w-2xl font-serif text-4xl font-normal leading-tight text-ink md:text-6xl">
+          Let&rsquo;s build something worth shipping.
+        </h2>
 
-          <p className="mt-6 max-w-lg text-base leading-7 text-muted">
-            I&rsquo;m open to internships, collaborations, and opportunities where
-            I can contribute to AI, web development, and product-focused
-            engineering.
-          </p>
-        </Reveal>
+        <a
+          href={`mailto:${email}`}
+          className="group mt-10 font-serif text-2xl text-ink transition-colors duration-300 hover:text-accent sm:text-3xl"
+        >
+          {email}
+          <span className="ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1">
+            &rarr;
+          </span>
+        </a>
 
-        <Reveal delay={150}>
-          <div className="mt-14 border-t border-line">
-            {links.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="group flex items-center justify-between border-b border-line py-6 transition-colors duration-300"
-              >
-                <span className="flex items-baseline gap-6">
-                  <span className="text-xs uppercase tracking-[0.14em] text-muted">
-                    {link.label}
-                  </span>
-                  <span className="font-serif text-lg text-ink transition-colors duration-300 group-hover:text-accent sm:text-2xl">
-                    {link.value}
-                  </span>
-                </span>
-                <span className="text-muted transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-accent">
-                  &nearr;
-                </span>
-              </a>
-            ))}
-          </div>
-        </Reveal>
-      </div>
+        <div className="mt-10 flex items-center gap-8">
+          {socials.map((social) => (
+            <a
+              key={social.label}
+              href={social.href}
+              className="text-sm text-muted transition-colors duration-300 hover:text-accent"
+            >
+              {social.label}
+            </a>
+          ))}
+        </div>
+      </Reveal>
     </section>
   );
 }
