@@ -1,9 +1,12 @@
 import Reveal from "./Reveal";
 
 const skillGroups = [
-  { label: "Languages", items: ["Python", "Java", "C++"] },
-  { label: "AI / ML", items: ["TensorFlow", "PyTorch"] },
-  { label: "Web", items: ["React", "Next.js", "Laravel"] },
+  { label: "Languages", items: ["Python", "Java", "C++", "TypeScript"] },
+  {
+    label: "AI / ML",
+    items: ["TensorFlow", "PyTorch", "Scikit-learn", "OpenCV", "Computer Vision", "LLMs / NLP"],
+  },
+  { label: "Web & backend", items: ["React", "Next.js", "Laravel", "FastAPI", "SQLAlchemy"] },
   { label: "Data", items: ["MySQL", "PostgreSQL", "MongoDB"] },
   { label: "Tools", items: ["Git", "GitHub", "Jira"] },
 ];

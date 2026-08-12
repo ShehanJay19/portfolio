@@ -6,6 +6,16 @@ const entries = [
     degree: "BSc (Hons) in Computer Science",
     place: "Eastern University, Sri Lanka",
   },
+  {
+    year: "2020",
+    degree: "GCE Advanced Level",
+    place: "St. Thomas' College, Matale, Sri Lanka",
+  },
+  {
+    year: "2017",
+    degree: "GCE Ordinary Level",
+    place: "St. Thomas' College, Matale, Sri Lanka",
+  },
 ];
 
 export default function Education() {
@@ -26,7 +36,7 @@ export default function Education() {
         <div className="mt-16 max-w-2xl border-t border-line">
           {entries.map((entry, index) => (
             <Reveal
-              key={entry.place}
+              key={entry.degree}
               delay={index * 90}
               className="flex flex-col gap-2 border-b border-line py-6 sm:flex-row sm:items-baseline sm:gap-8"
             >
