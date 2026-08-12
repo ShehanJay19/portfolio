@@ -73,3 +73,15 @@ body {
     transition: none;
   }
 }
+
+/* Duotone photo treatment: maps a photo into the site's own bg/accent
+   palette via a blend-mode tint, instead of sitting on the page as a
+   plain photo. */
+.duotone-photo {
+  filter: grayscale(1) contrast(1.15) brightness(0.95);
+}
+
+.duotone-tint {
+  background: linear-gradient(160deg, var(--color-bg) 0%, var(--color-accent) 140%);
+  mix-blend-mode: color;
+}

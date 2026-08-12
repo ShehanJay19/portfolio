@@ -54,14 +54,23 @@ export default function Hero() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           }`}
         >
-          <div className="ml-auto mt-10 w-40 sm:w-52 lg:mt-28 lg:w-full lg:max-w-[15rem]">
-            <div className="aspect-[4/5] overflow-hidden border border-line">
+          <div className="group relative ml-auto mt-10 w-40 sm:w-52 lg:mt-28 lg:w-full lg:max-w-[15rem]">
+            <div className="relative aspect-[4/5] overflow-hidden border border-line bg-surface">
               <img
                 src={heroImage}
                 alt="Shehan Jayasinghe"
-                className="h-full w-full object-cover grayscale transition-all duration-700 hover:grayscale-0"
+                className="duotone-photo h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
+              <div aria-hidden="true" className="duotone-tint pointer-events-none absolute inset-0" />
             </div>
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute -top-3 -left-3 h-6 w-6 border-t border-l border-accent/50 transition-all duration-300 group-hover:-top-4 group-hover:-left-4"
+            />
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute -bottom-3 -right-3 h-6 w-6 border-r border-b border-accent/50 transition-all duration-300 group-hover:-bottom-4 group-hover:-right-4"
+            />
           </div>
         </div>
       </div>
