@@ -26,7 +26,7 @@ export default function Contact() {
         </p>
 
         <h2 className="mt-8 max-w-2xl font-serif text-4xl font-normal leading-tight text-ink md:text-6xl">
-          Let&rsquo;s build something worth shipping.
+          Let’s build something worth shipping.
         </h2>
 
         <a
@@ -35,7 +35,7 @@ export default function Contact() {
         >
           {email}
           <span className="ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1">
-            &rarr;
+            →
           </span>
         </a>
 

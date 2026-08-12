@@ -23,7 +23,7 @@ export default function Hero() {
           isVisible ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
         }`}
       >
-        Computer Science Undergraduate &mdash; Eastern University, Sri Lanka
+        Computer Science Undergraduate — Eastern University, Sri Lanka
       </p>
 
       <h1

@@ -65,7 +65,7 @@ function ProjectCard({ project, index }) {
       <div className="flex items-start justify-between">
         <span className="text-xs text-muted">{String(index + 1).padStart(2, "0")}</span>
         <span className="text-muted opacity-0 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent group-hover:opacity-100 group-focus-visible:opacity-100">
-          &nearr;
+          ↗
         </span>
       </div>
 

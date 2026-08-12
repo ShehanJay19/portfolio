@@ -24,23 +24,23 @@ export default function About() {
             </h2>
 
             <p className="mt-8 max-w-lg text-base leading-7 text-muted">
-              I&rsquo;m a Computer Science undergraduate at Eastern University,
+              I’m a Computer Science undergraduate at Eastern University,
               Sri Lanka, building at the intersection of AI/ML and full stack
-              engineering. I&rsquo;d rather ship a working model than talk
+              engineering. I’d rather ship a working model than talk
               about one.
             </p>
 
             <p className="mt-5 max-w-lg text-base leading-7 text-muted">
-              Right now I&rsquo;m aiming at AI/ML engineering roles and
-              deliberately picking up cloud engineering along the way &mdash;
-              because a good model only matters once it&rsquo;s running
+              Right now I’m aiming at AI/ML engineering roles and
+              deliberately picking up cloud engineering along the way —
+              because a good model only matters once it’s running
               somewhere real.
             </p>
           </Reveal>
         </div>
 
         <Reveal delay={150} className="lg:col-span-5">
-          <p className="text-sm text-muted">Skills &amp; tools</p>
+          <p className="text-sm text-muted">Skills & tools</p>
 
           <div className="mt-6 border-t border-line">
             {skillGroups.map((group) => (
