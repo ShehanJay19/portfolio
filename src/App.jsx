@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Work from "./components/Work";
 import About from "./components/About";
+import Education from "./components/Education";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
@@ -13,6 +14,7 @@ function App() {
       <Hero />
       <Work />
       <About />
+      <Education />
       <Contact />
       <Footer />
     </>
