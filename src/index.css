@@ -23,8 +23,6 @@ body {
   margin: 0;
   min-width: 320px;
   background-color: var(--color-bg);
-  background-image: radial-gradient(circle at 1px 1px, rgba(237, 237, 236, 0.06) 1px, transparent 0);
-  background-size: 32px 32px;
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
