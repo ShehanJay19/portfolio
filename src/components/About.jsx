@@ -1,14 +1,52 @@
 import Reveal from "./Reveal";
 
 const skillGroups = [
-  { label: "Languages", items: ["Python", "Java", "C++", "TypeScript"] },
+  {
+    label: "Languages",
+    items: [
+      { name: "Python", mark: "Py" },
+      { name: "Java", mark: "Jv" },
+      { name: "C++", mark: "C+" },
+      { name: "TypeScript", mark: "Ts" },
+    ],
+  },
   {
     label: "AI / ML",
-    items: ["TensorFlow", "PyTorch", "Scikit-learn", "OpenCV", "Computer Vision", "LLMs / NLP"],
+    items: [
+      { name: "TensorFlow", mark: "Tf" },
+      { name: "PyTorch", mark: "Pt" },
+      { name: "Scikit-learn", mark: "Sk" },
+      { name: "OpenCV", mark: "Cv" },
+      { name: "Computer Vision", mark: "Vi" },
+      { name: "LLMs / NLP", mark: "Ai" },
+    ],
   },
-  { label: "Web & backend", items: ["React", "Next.js", "Laravel", "FastAPI", "SQLAlchemy"] },
-  { label: "Data", items: ["MySQL", "PostgreSQL", "MongoDB"] },
-  { label: "Tools", items: ["Git", "GitHub", "Jira"] },
+  {
+    label: "Web & backend",
+    items: [
+      { name: "React", mark: "Re" },
+      { name: "Next.js", mark: "Nx" },
+      { name: "Laravel", mark: "Lv" },
+      { name: "FastAPI", mark: "Fa" },
+      { name: "SQLAlchemy", mark: "Sq" },
+    ],
+  },
+  {
+    label: "Data",
+    items: [
+      { name: "MySQL", mark: "My" },
+      { name: "PostgreSQL", mark: "Pg" },
+      { name: "MongoDB", mark: "Mo" },
+    ],
+  },
+  {
+    label: "Tools",
+    items: [
+      { name: "Git", mark: "Gt" },
+      { name: "GitHub", mark: "Gh" },
+      { name: "Jira", mark: "Ji" },
+    ],
+  },
 ];
 
 export default function About() {
@@ -47,16 +85,21 @@ export default function About() {
 
           <div className="mt-6 border-t border-line">
             {skillGroups.map((group) => (
-              <div
-                key={group.label}
-                className="flex flex-col gap-2 border-b border-line py-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
-              >
+              <div key={group.label} className="border-b border-line py-5">
                 <span className="text-xs uppercase tracking-[0.14em] text-muted">
                   {group.label}
                 </span>
-                <span className="text-sm text-ink sm:text-right">
-                  {group.items.join(" · ")}
-                </span>
+
+                <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-3">
+                  {group.items.map((item) => (
+                    <li key={item.name} className="group flex items-center gap-2">
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center border border-line font-serif text-[11px] text-muted transition-colors duration-300 group-hover:border-accent group-hover:text-accent">
+                        {item.mark}
+                      </span>
+                      <span className="text-sm text-ink">{item.name}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
