@@ -19,6 +19,7 @@ import {
   SiJira,
 } from "react-icons/si";
 import { DiJava } from "react-icons/di";
+import { RiOpenaiFill } from "react-icons/ri";
 import Reveal from "./Reveal";
 
 const skillGroups = [
@@ -38,8 +39,7 @@ const skillGroups = [
       { name: "PyTorch", Icon: SiPytorch },
       { name: "Scikit-learn", Icon: SiScikitlearn },
       { name: "OpenCV", Icon: SiOpencv },
-      { name: "Computer Vision", mark: "Vi" },
-      { name: "LLMs / NLP", mark: "Ai" },
+      { name: "OpenAI", Icon: RiOpenaiFill },
     ],
   },
   {
@@ -69,13 +69,6 @@ const skillGroups = [
     ],
   },
 ];
-
-function SkillMark({ item }) {
-  if (item.Icon) {
-    return <item.Icon className="h-3.5 w-3.5" />;
-  }
-  return <span className="font-serif text-[11px]">{item.mark}</span>;
-}
 
 export default function About() {
   return (
@@ -122,7 +115,7 @@ export default function About() {
                   {group.items.map((item) => (
                     <li key={item.name} className="group flex items-center gap-2">
                       <span className="flex h-6 w-6 shrink-0 items-center justify-center border border-line text-muted transition-colors duration-300 group-hover:border-accent group-hover:text-accent">
-                        <SkillMark item={item} />
+                        <item.Icon className="h-3.5 w-3.5" />
                       </span>
                       <span className="text-sm text-ink">{item.name}</span>
                     </li>
