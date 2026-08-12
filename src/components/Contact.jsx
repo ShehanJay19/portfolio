@@ -1,59 +1,65 @@
-import NetworkBackground from "./NetworkBackground";
+import Reveal from "./Reveal";
+
+const links = [
+  { label: "Email", value: "shehanjay1921@gmail.com", href: "mailto:shehanjay1921@gmail.com" },
+  { label: "GitHub", value: "github.com/ShehanJay19", href: "https://github.com/ShehanJay19" },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/Shehan Jayasinghe",
+    href: "https://linkedin.com/in/Shehan Jayasinghe",
+  },
+];
 
 export default function Contact() {
-	const links = [
-		{ label: "Email", value: "shehanjay1921@gmail.com", href: "mailto:shehanjay1921@gmail.com" },
-		{ label: "GitHub", value: "github.com/ShehanJay19", href: "https://github.com/ShehanJay19" },
-		{ label: "LinkedIn", value: "linkedin.com/in/Shehan Jayasinghe", href: "https://linkedin.com/in/Shehan Jayasinghe" },
-	];
+  return (
+    <section id="contact" className="relative overflow-hidden border-t border-line px-6 py-28 md:py-36">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-[-12rem] left-[-10rem] h-[30rem] w-[30rem] rounded-full bg-accent/10 blur-[120px]"
+      />
 
-	return (
-		<section id="contact" className="relative py-24 px-6 text-white overflow-hidden">
-			<div className="absolute inset-0 bg-gradient-to-b from-[#0c0614] via-[#0b0613] to-[#09040f]" />
-			<NetworkBackground />
-			<div className="relative z-10 max-w-6xl mx-auto grid lg:grid-cols-12 gap-8 items-center">
-				<div className="lg:col-span-5">
-					<div className="inline-flex rounded-full border border-rose-200/30 bg-rose-300/10 px-4 py-1 text-xs uppercase tracking-[0.22em] text-rose-100/90">
-						Contact
-					</div>
+      <div className="relative mx-auto max-w-6xl">
+        <Reveal>
+          <p className="flex items-center gap-3 text-sm text-muted">
+            <span className="h-px w-8 bg-accent" />
+            Contact
+          </p>
 
-					<h2 className="mt-5 text-3xl md:text-5xl font-bold leading-tight">
-						Let&apos;s build something
-						<span className="block bg-gradient-to-r from-rose-200 via-fuchsia-200 to-violet-200 bg-clip-text text-transparent">
-							useful and beautiful
-						</span>
-					</h2>
+          <h2 className="mt-6 max-w-xl font-serif text-3xl font-normal leading-tight text-ink md:text-5xl">
+            Let&rsquo;s build something useful and beautiful.
+          </h2>
 
-					<p className="mt-5 text-base md:text-lg text-gray-200/90 max-w-xl">
-						I&apos;m open to internships, collaborations, and opportunities where I can
-						contribute to AI, web development, and product-focused engineering.
-					</p>
-				</div>
+          <p className="mt-6 max-w-lg text-base leading-7 text-muted">
+            I&rsquo;m open to internships, collaborations, and opportunities where
+            I can contribute to AI, web development, and product-focused
+            engineering.
+          </p>
+        </Reveal>
 
-				<div className="lg:col-span-7 rounded-3xl border border-white/15 bg-white/10 backdrop-blur-md p-6 md:p-8 shadow-2xl shadow-black/20">
-					<div className="grid gap-4">
-						{links.map((link) => (
-							<a
-								key={link.label}
-								href={link.href}
-								className="flex items-center justify-between rounded-2xl border border-white/15 bg-black/15 px-4 py-4 transition hover:bg-white/10"
-							>
-								<div>
-									<p className="text-xs uppercase tracking-[0.2em] text-rose-100/70">{link.label}</p>
-									<p className="mt-1 text-sm md:text-base text-white">{link.value}</p>
-								</div>
-								<span className="text-rose-100/75">↗</span>
-							</a>
-						))}
-					</div>
-
-					<div className="mt-6 rounded-2xl border border-rose-200/25 bg-gradient-to-br from-rose-300/15 to-fuchsia-300/10 p-5">
-						<p className="text-sm md:text-base text-rose-50/95">
-							Prefer a faster response? Email is the best place to reach me.
-						</p>
-					</div>
-				</div>
-			</div>
-		</section>
-	);
+        <Reveal delay={150}>
+          <div className="mt-14 border-t border-line">
+            {links.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="group flex items-center justify-between border-b border-line py-6 transition-colors duration-300"
+              >
+                <span className="flex items-baseline gap-6">
+                  <span className="text-xs uppercase tracking-[0.14em] text-muted">
+                    {link.label}
+                  </span>
+                  <span className="font-serif text-lg text-ink transition-colors duration-300 group-hover:text-accent sm:text-2xl">
+                    {link.value}
+                  </span>
+                </span>
+                <span className="text-muted transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-accent">
+                  &nearr;
+                </span>
+              </a>
+            ))}
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
 }

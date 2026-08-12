@@ -1,66 +1,81 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const links = [
-  { href: "#home", label: "Home" },
+  { href: "#work", label: "Work" },
   { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#projects", label: "Projects" },
+  { href: "#education", label: "Education" },
   { href: "#contact", label: "Contact" },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 left-0 z-50 w-full px-3 sm:px-5 pt-3">
-      <div className="mx-auto max-w-6xl rounded-2xl border border-white/15 bg-[#190e2a]/70 backdrop-blur-xl shadow-lg shadow-black/30">
-        <div className="flex items-center justify-between px-4 sm:px-6 py-3">
-          <a href="#home" className="text-xl font-extrabold tracking-tight text-white">
-            SHEHAN.TECH
-          </a>
+    <nav
+      className={`fixed top-0 left-0 z-50 w-full transition-colors duration-300 ${
+        isScrolled ? "bg-bg/85 backdrop-blur-md border-b border-line" : "border-b border-transparent"
+      }`}
+    >
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+        <a href="#home" className="font-serif text-lg tracking-tight text-ink">
+          Shehan Jayasinghe
+        </a>
 
-          <ul className="hidden md:flex items-center gap-1">
+        <ul className="hidden md:flex items-center gap-9">
+          {links.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className="group relative text-sm text-muted transition-colors hover:text-ink"
+              >
+                {link.label}
+                <span className="absolute -bottom-1 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <button
+          type="button"
+          onClick={() => setIsOpen((prev) => !prev)}
+          className="md:hidden inline-flex h-9 w-9 flex-col items-center justify-center gap-1.5"
+          aria-label="Toggle navigation"
+          aria-expanded={isOpen}
+        >
+          <span
+            className={`h-px w-5 bg-ink transition-transform duration-300 ${isOpen ? "translate-y-[3.5px] rotate-45" : ""}`}
+          />
+          <span
+            className={`h-px w-5 bg-ink transition-transform duration-300 ${isOpen ? "-translate-y-[3.5px] -rotate-45" : ""}`}
+          />
+        </button>
+      </div>
+
+      {isOpen && (
+        <div className="md:hidden border-t border-line bg-bg px-6 py-6">
+          <ul className="grid gap-5">
             {links.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="inline-flex rounded-lg px-3.5 py-2 text-sm text-gray-100/90 transition hover:bg-white/10 hover:text-white"
+                  onClick={() => setIsOpen(false)}
+                  className="text-base text-ink"
                 >
                   {link.label}
                 </a>
               </li>
             ))}
           </ul>
-
-          <button
-            type="button"
-            onClick={() => setIsOpen((prev) => !prev)}
-            className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/20 bg-white/10 text-white"
-            aria-label="Toggle navigation"
-            aria-expanded={isOpen}
-          >
-            <span className="text-lg leading-none">{isOpen ? "x" : "="}</span>
-          </button>
         </div>
-
-        {isOpen && (
-          <div className="md:hidden border-t border-white/15 px-4 py-3">
-            <ul className="grid gap-1.5">
-              {links.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className="block rounded-lg px-3 py-2 text-sm text-gray-100/95 transition hover:bg-white/10"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </div>
+      )}
     </nav>
   );
 }
