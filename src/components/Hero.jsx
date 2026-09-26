@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import heroImage from "../assets/hero.png";
+import heroImage from "../assets/hero1.png";
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
@@ -16,16 +16,30 @@ export default function Hero() {
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-40 right-[-10rem] h-[34rem] w-[34rem] rounded-full bg-accent/10 blur-[120px]"
+        className="pointer-events-none absolute -left-24 top-1/3 h-[26rem] w-[26rem] rounded-full bg-accent/10 blur-[130px]"
       />
+
+      <div
+        aria-hidden="true"
+        className={`absolute inset-y-0 right-0 w-full sm:w-[85%] lg:w-1/2 transition-opacity duration-1000 ease-out ${
+          isVisible ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <img
+          src={heroImage}
+          alt=""
+          className="duotone-photo hero-photo-edge-fade h-full w-full object-cover object-[center_12%]"
+        />
+      </div>
 
       <div className="relative mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-12">
         <div className="lg:col-span-7">
           <p
-            className={`text-sm text-muted transition-all duration-700 ease-out ${
+            className={`flex items-center gap-3 text-sm text-muted transition-all duration-700 ease-out ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
             }`}
           >
+            <span className="h-px w-8 bg-accent" />
             Computer Science Undergraduate — Eastern University, Sri Lanka
           </p>
 
@@ -48,37 +62,12 @@ export default function Hero() {
             <span className="ml-1 inline-block h-[1.1em] w-[2px] animate-pulse bg-accent" />
           </p>
         </div>
-
-        <div
-          className={`lg:col-span-5 transition-all delay-500 duration-1000 ease-out ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-          }`}
-        >
-          <div className="group relative ml-auto mt-10 w-56 sm:w-72 lg:mt-16 lg:w-full lg:max-w-[22rem]">
-            <div className="relative aspect-[4/5] overflow-hidden border border-line bg-surface">
-              <img
-                src={heroImage}
-                alt="Shehan Jayasinghe"
-                className="duotone-photo h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-              />
-              <div aria-hidden="true" className="duotone-tint pointer-events-none absolute inset-0" />
-            </div>
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute -top-3 -left-3 h-6 w-6 border-t border-l border-accent/50 transition-all duration-300 group-hover:-top-4 group-hover:-left-4"
-            />
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute -bottom-3 -right-3 h-6 w-6 border-r border-b border-accent/50 transition-all duration-300 group-hover:-bottom-4 group-hover:-right-4"
-            />
-          </div>
-        </div>
       </div>
 
       <a
         href="#work"
         aria-label="Scroll to work section"
-        className="group absolute bottom-10 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-muted transition-colors hover:text-ink"
+        className="group absolute bottom-10 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-muted transition-colors hover:text-ink"
       >
         <span className="text-xs uppercase tracking-[0.2em]">Scroll</span>
         <span className="h-10 w-px bg-line-strong transition-colors duration-300 group-hover:bg-accent" />

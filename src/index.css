@@ -72,14 +72,16 @@ body {
   }
 }
 
-/* Duotone photo treatment: maps a photo into the site's own bg/accent
-   palette via a blend-mode tint, instead of sitting on the page as a
-   plain photo. */
+/* Duotone photo treatment: strips the photo to grayscale so it reads as
+   part of the page's own dark palette instead of a plain color photo. */
 .duotone-photo {
-  filter: grayscale(1) contrast(1.15) brightness(0.95);
+  filter: grayscale(1) contrast(1.2) brightness(0.85);
 }
 
-.duotone-tint {
-  background: linear-gradient(160deg, var(--color-bg) 0%, var(--color-accent) 140%);
-  mix-blend-mode: color;
+/* Full-bleed hero photo: fades its left edge into the page background so
+   a half-viewport image blends into the dark canvas instead of showing a
+   hard rectangle edge where it meets the text. */
+.hero-photo-edge-fade {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 45%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 45%);
 }
