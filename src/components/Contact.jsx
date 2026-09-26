@@ -1,3 +1,4 @@
+import { FiArrowUpRight } from "react-icons/fi";
 import Reveal from "./Reveal";
 
 const email = "shehanjay1921@gmail.com";
@@ -9,48 +10,42 @@ const socials = [
 
 export default function Contact() {
   return (
-    <section
-      id="contact"
-      className="relative flex min-h-[80vh] flex-col items-center justify-center overflow-hidden px-6 py-28 text-center"
-    >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-[-14rem] left-1/2 h-[30rem] w-[30rem] -translate-x-1/2 rounded-full bg-accent/10 blur-[120px]"
-      />
+    <section id="contact" className="contact-section">
+      <div className="contact-topline">
+        <span>Available for opportunities</span>
+        <span>Sri Lanka</span>
+      </div>
 
-      <Reveal className="relative flex flex-col items-center">
-        <p className="flex items-center gap-3 text-sm text-muted">
-          <span className="h-px w-8 bg-accent" />
-          Contact
-          <span className="h-px w-8 bg-accent" />
+      <p className="section-kicker">04 / Have something in mind?</p>
+
+      <Reveal>
+        <h2>
+          Good things start
+          <br />
+          with a <em>conversation.</em>
+        </h2>
+      </Reveal>
+
+      <div className="contact-bottom">
+        <p>
+          An interesting problem, a new idea, or a simple hello.
+          <br />
+          I&rsquo;d love to hear what you&rsquo;re thinking.
         </p>
 
-        <h2 className="mt-8 max-w-2xl font-serif text-4xl font-normal leading-tight text-ink md:text-6xl">
-          Let’s build something worth shipping.
-        </h2>
-
-        <a
-          href={`mailto:${email}`}
-          className="group mt-10 font-serif text-2xl text-ink transition-colors duration-300 hover:text-accent sm:text-3xl"
-        >
-          {email}
-          <span className="ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1">
-            →
-          </span>
-        </a>
-
-        <div className="mt-10 flex items-center gap-8">
-          {socials.map((social) => (
-            <a
-              key={social.label}
-              href={social.href}
-              className="text-sm text-muted transition-colors duration-300 hover:text-accent"
-            >
-              {social.label}
-            </a>
-          ))}
+        <div>
+          <a className="contact-link" href={`mailto:${email}`}>
+            {email} <FiArrowUpRight size={22} />
+          </a>
+          <div className="contact-socials" style={{ marginTop: "18px" }}>
+            {socials.map((social) => (
+              <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer">
+                {social.label}
+              </a>
+            ))}
+          </div>
         </div>
-      </Reveal>
+      </div>
     </section>
   );
 }
