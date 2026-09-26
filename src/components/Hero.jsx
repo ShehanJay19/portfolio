@@ -61,6 +61,16 @@ export default function Hero() {
             Aspiring AI/ML Engineer, exploring Cloud Engineering
             <span className="ml-1 inline-block h-[1.1em] w-[2px] animate-pulse bg-accent" />
           </p>
+
+          <a
+            href="mailto:shehanjay1921@gmail.com"
+            className={`group mt-10 inline-flex w-fit items-center gap-3 border border-accent bg-accent px-6 py-3 text-sm uppercase tracking-[0.2em] text-bg transition-all delay-450 duration-700 ease-out hover:bg-transparent hover:text-accent ${
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
+            }`}
+          >
+            Let’s build
+            <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </a>
         </div>
       </div>
 
