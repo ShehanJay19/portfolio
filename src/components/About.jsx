@@ -24,6 +24,7 @@ import Reveal from "./Reveal";
 
 const skillGroups = [
   {
+    number: "01",
     label: "Languages",
     items: [
       { name: "Python", Icon: SiPython },
@@ -33,6 +34,7 @@ const skillGroups = [
     ],
   },
   {
+    number: "02",
     label: "AI / ML",
     items: [
       { name: "TensorFlow", Icon: SiTensorflow },
@@ -43,6 +45,7 @@ const skillGroups = [
     ],
   },
   {
+    number: "03",
     label: "Web & backend",
     items: [
       { name: "React", Icon: SiReact },
@@ -53,6 +56,7 @@ const skillGroups = [
     ],
   },
   {
+    number: "04",
     label: "Data",
     items: [
       { name: "MySQL", Icon: SiMysql },
@@ -61,6 +65,7 @@ const skillGroups = [
     ],
   },
   {
+    number: "05",
     label: "Tools",
     items: [
       { name: "Git", Icon: SiGit },
@@ -72,59 +77,46 @@ const skillGroups = [
 
 export default function About() {
   return (
-    <section id="about" className="border-t border-line px-6 py-28 md:py-36">
-      <div className="mx-auto grid max-w-6xl gap-16 lg:grid-cols-12">
-        <div className="lg:col-span-7">
-          <Reveal>
-            <p className="flex items-center gap-3 text-sm text-muted">
-              <span className="h-px w-8 bg-accent" />
-              About
-            </p>
+    <section id="about" className="section section-ink">
+      <p className="ghost-title" aria-hidden="true">About</p>
+      <p className="section-kicker">02 / A little about me</p>
 
-            <h2 className="mt-6 max-w-xl font-serif text-3xl font-normal leading-tight text-ink md:text-4xl">
-              Where machine learning meets real products.
-            </h2>
-
-            <p className="mt-8 max-w-lg text-base leading-7 text-muted">
-              I’m a Computer Science undergraduate at Eastern University,
-              Sri Lanka, building at the intersection of AI/ML and full stack
-              engineering. I’d rather ship a working model than talk
-              about one.
-            </p>
-
-            <p className="mt-5 max-w-lg text-base leading-7 text-muted">
-              Right now I’m aiming at AI/ML engineering roles and
-              deliberately picking up cloud engineering along the way —
-              because a good model only matters once it’s running
-              somewhere real.
-            </p>
-          </Reveal>
+      <div className="about-grid">
+        <h2>
+          <span className="slash">/</span> Where machine learning
+          <br />
+          meets <em>real products.</em>
+        </h2>
+        <div className="about-copy">
+          <p className="about-lead">
+            I&rsquo;m Shehan, a Computer Science undergraduate at Eastern
+            University, Sri Lanka, building at the intersection of AI/ML and
+            full-stack engineering.
+          </p>
+          <p>
+            I&rsquo;d rather ship a working model than talk about one. Right
+            now I&rsquo;m aiming at AI/ML engineering roles and deliberately
+            picking up cloud engineering along the way — because a good
+            model only matters once it&rsquo;s running somewhere real.
+          </p>
         </div>
+      </div>
 
-        <Reveal delay={150} className="lg:col-span-5">
-          <p className="text-sm text-muted">Skills & tools</p>
-
-          <div className="mt-6 border-t border-line">
-            {skillGroups.map((group) => (
-              <div key={group.label} className="border-b border-line py-5">
-                <span className="text-xs uppercase tracking-[0.14em] text-muted">
-                  {group.label}
+      <div className="principles">
+        {skillGroups.map((group, index) => (
+          <Reveal key={group.label} delay={index * 80}>
+            <span>{group.number}</span>
+            <h3>{group.label}</h3>
+            <div className="skill-icons">
+              {group.items.map((item) => (
+                <span className="skill-chip" key={item.name}>
+                  <item.Icon />
+                  {item.name}
                 </span>
-
-                <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-3">
-                  {group.items.map((item) => (
-                    <li key={item.name} className="group flex items-center gap-2">
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center border border-line text-muted transition-colors duration-300 group-hover:border-accent group-hover:text-accent">
-                        <item.Icon className="h-3.5 w-3.5" />
-                      </span>
-                      <span className="text-sm text-ink">{item.name}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </Reveal>
+              ))}
+            </div>
+          </Reveal>
+        ))}
       </div>
     </section>
   );
