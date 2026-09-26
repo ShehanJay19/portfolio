@@ -11,6 +11,7 @@ const socials = [
 export default function Contact() {
   return (
     <section id="contact" className="contact-section">
+      <p className="ghost-title" aria-hidden="true">Talk</p>
       <div className="contact-topline">
         <span>Available for opportunities</span>
         <span>Sri Lanka</span>

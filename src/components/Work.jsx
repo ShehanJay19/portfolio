@@ -43,6 +43,7 @@ export default function Work() {
 
   return (
     <section id="work" className="section section-paper">
+      <p className="ghost-title" aria-hidden="true">Work</p>
       <p className="section-kicker">01 / Selected projects</p>
       <div className="section-heading">
         <h2>

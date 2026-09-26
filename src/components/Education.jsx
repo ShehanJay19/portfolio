@@ -28,6 +28,7 @@ const entries = [
 export default function Education() {
   return (
     <section id="education" className="section section-paper">
+      <p className="ghost-title" aria-hidden="true">Study</p>
       <p className="section-kicker">03 / The path so far</p>
       <div className="section-heading">
         <h2>

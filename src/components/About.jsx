@@ -78,6 +78,7 @@ const skillGroups = [
 export default function About() {
   return (
     <section id="about" className="section section-ink">
+      <p className="ghost-title" aria-hidden="true">About</p>
       <p className="section-kicker">02 / A little about me</p>
 
       <div className="about-grid">
