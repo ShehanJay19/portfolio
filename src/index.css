@@ -512,8 +512,7 @@ body {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.project-feature:hover .feature-card,
-.project-feature:focus-visible .feature-card {
+.project-feature:hover .feature-card {
   opacity: 1;
   transform: translateY(-50%) rotate(-4deg) scale(1);
 }
