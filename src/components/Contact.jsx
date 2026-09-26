@@ -1,11 +1,15 @@
-import { FiArrowUpRight } from "react-icons/fi";
+import { FiArrowUpRight, FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 import Reveal from "./Reveal";
 
 const email = "shehanjay1921@gmail.com";
 
 const socials = [
-  { label: "GitHub", href: "https://github.com/ShehanJay19" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/shehan-jayasinghe-6b4a122ba/" },
+  { label: "GitHub", href: "https://github.com/ShehanJay19", Icon: FiGithub },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/shehan-jayasinghe-6b4a122ba/",
+    Icon: FiLinkedin,
+  },
 ];
 
 export default function Contact() {
@@ -36,11 +40,16 @@ export default function Contact() {
 
         <div>
           <a className="contact-link" href={`mailto:${email}`}>
-            {email} <FiArrowUpRight size={22} />
+            <FiMail size={20} />
+            {email}
+            <span className="contact-link-arrow">
+              <FiArrowUpRight size={16} />
+            </span>
           </a>
-          <div className="contact-socials" style={{ marginTop: "18px" }}>
+          <div className="contact-socials">
             {socials.map((social) => (
               <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer">
+                <social.Icon size={15} />
                 {social.label}
               </a>
             ))}

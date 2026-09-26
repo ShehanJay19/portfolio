@@ -824,25 +824,64 @@ body {
   text-decoration: none;
   border-bottom: 1px solid currentColor;
   padding-bottom: 7px;
+  transition: gap 0.25s ease;
+}
+
+.contact-link svg:first-child {
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+.contact-link-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  margin-left: auto;
+  border: 1px solid color-mix(in oklab, var(--primary-foreground) 45%, transparent);
+  border-radius: 50%;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.contact-link:hover {
+  gap: 18px;
+}
+
+.contact-link:hover .contact-link-arrow {
+  background: var(--primary-foreground);
+  color: var(--primary);
+  transform: rotate(45deg);
 }
 
 .contact-socials {
   display: flex;
-  gap: 20px;
+  gap: 14px;
+  margin-top: 22px;
 }
 
 .contact-socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 18px;
+  border: 1px solid color-mix(in oklab, var(--primary-foreground) 35%, transparent);
+  border-radius: 30px;
   color: var(--primary-foreground);
-  opacity: 0.75;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   text-decoration: none;
-  transition: opacity 0.25s ease;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease,
+    transform 0.25s ease;
 }
 
 .contact-socials a:hover {
-  opacity: 1;
+  background: var(--primary-foreground);
+  color: var(--primary);
+  border-color: var(--primary-foreground);
+  transform: translateY(-3px);
 }
 
 /* ---------------------------------------------------------------------- */
