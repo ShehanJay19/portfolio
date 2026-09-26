@@ -558,74 +558,6 @@ body {
   padding: 0 14px;
 }
 
-.project-row {
-  position: relative;
-  display: grid;
-  grid-template-columns: 48px 1fr 30px;
-  gap: 28px;
-  align-items: center;
-  padding: 34px 0;
-  border-bottom: 1px solid var(--line-light);
-  transition: background 0.3s ease, padding 0.3s ease;
-  text-decoration: none;
-  color: inherit;
-}
-
-.project-row:hover {
-  background: color-mix(in oklab, var(--primary) 8%, transparent);
-  padding-inline: 18px;
-}
-
-/* Screenshot preview: reserved space for a real screenshot, revealed on
-   hover/focus so the row list stays compact until a project is browsed. */
-.row-preview {
-  position: absolute;
-  z-index: 5;
-  top: 50%;
-  right: 6%;
-  width: 240px;
-  height: 155px;
-  background: var(--background);
-  color: var(--foreground);
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow: 0 24px 50px -20px oklch(0.1 0 0 / 55%);
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-50%) rotate(-3deg) scale(0.94);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.project-row:hover .row-preview,
-.project-row:focus-visible .row-preview {
-  opacity: 1;
-  transform: translateY(-50%) rotate(-3deg) scale(1);
-}
-
-.project-row .row-number {
-  align-self: center;
-  padding: 0;
-  font-size: 9px;
-  color: color-mix(in oklab, var(--paper-foreground) 45%, transparent);
-}
-
-.project-row h3 {
-  font-family: var(--font-serif);
-  font-size: clamp(26px, 2.6vw, 38px);
-  font-weight: 400;
-  margin: 0;
-}
-
-.project-row .row-arrow {
-  color: var(--paper-foreground);
-  transition: color 0.25s ease, transform 0.25s ease;
-}
-
-.project-row:hover .row-arrow {
-  color: var(--primary);
-  transform: translate(3px, -3px);
-}
-
 .section-footnote {
   display: flex;
   justify-content: space-between;
@@ -1031,17 +963,6 @@ footer.site-footer a {
     position: absolute;
     top: 22px;
     right: 22px;
-  }
-  .project-row {
-    grid-template-columns: 32px 1fr 22px;
-    gap: 12px;
-    padding: 26px 0;
-  }
-  .row-preview {
-    display: none;
-  }
-  .project-row:hover {
-    padding-inline: 8px;
   }
   .principles {
     grid-template-columns: 1fr;

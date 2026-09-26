@@ -1,4 +1,4 @@
-import { FiArrowUpRight, FiArrowDownRight, FiImage } from "react-icons/fi";
+import { FiArrowDownRight, FiArrowUpRight, FiImage } from "react-icons/fi";
 import Reveal from "./Reveal";
 
 const projects = [
@@ -9,37 +9,51 @@ const projects = [
     description:
       "A multi-agent research pipeline: a planner decomposes questions, parallel searcher agents gather sources, a critic fact-checks and flags contradictions, and a writer produces a cited report.",
     tags: ["Python", "Multi-Agent", "LLM"],
-    featured: true,
     screenshot: null,
   },
   {
     number: "02",
     name: "smart-resume-analyzer",
     title: "Smart Resume Analyzer",
+    description:
+      "AI-powered resume parsing, ATS scoring, job-description matching, and interview prep, built on FastAPI + SQLAlchemy with a React 19 + TypeScript frontend.",
+    tags: ["FastAPI", "React 19", "TypeScript"],
     screenshot: null,
   },
   {
     number: "03",
     name: "ai-proctoring-system",
     title: "AI Proctoring System",
+    description:
+      "Exam proctoring system using computer vision to monitor students in real time and flag suspicious behavior like multiple faces, phone use, and gaze deviation.",
+    tags: ["JavaScript", "Computer Vision"],
     screenshot: null,
   },
   {
     number: "04",
     name: "Real-Time-Object-Detection-Security-System",
     title: "Real-Time Object Detection",
+    description:
+      "Real-time surveillance system using YOLOv8 and OpenCV to detect intruders, weapons, and suspicious activity with instant alerts.",
+    tags: ["Python", "YOLOv8", "OpenCV"],
     screenshot: null,
   },
   {
     number: "05",
     name: "Credit-Crad-Fraud-Detetction",
     title: "Credit Card Fraud Detection",
+    description:
+      "A machine learning model for detecting fraudulent transactions using Random Forest with SMOTE oversampling for imbalanced data.",
+    tags: ["Python", "Random Forest", "SMOTE"],
     screenshot: null,
   },
   {
     number: "06",
     name: "SpamSheild",
     title: "SpamShield",
+    description:
+      "A machine learning web app that classifies messages as spam or not spam with high accuracy using TF-IDF and a Linear SVM.",
+    tags: ["Python", "TF-IDF", "SVM"],
     screenshot: null,
   },
 ];
@@ -58,8 +72,6 @@ function ScreenshotSlot({ project }) {
 }
 
 export default function Work() {
-  const [feature, ...rest] = projects;
-
   return (
     <section id="work" className="section section-paper">
       <p className="ghost-title" aria-hidden="true">Work</p>
@@ -76,45 +88,30 @@ export default function Work() {
       </div>
 
       <div className="project-list">
-        <Reveal
-          as="a"
-          href={`https://github.com/ShehanJay19/${feature.name}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="project-feature"
-        >
-          <div className="feature-copy">
-            <span className="row-number">{feature.number}</span>
-            <h3>{feature.title}</h3>
-            <p>{feature.description}</p>
-            <div className="tag-list">
-              {feature.tags.map((tag) => (
-                <span key={tag}>{tag}</span>
-              ))}
-            </div>
-          </div>
-          <div className="feature-card" aria-hidden="true">
-            <ScreenshotSlot project={feature} />
-          </div>
-          <FiArrowDownRight className="row-arrow" size={24} />
-        </Reveal>
-
-        {rest.map((project, index) => (
+        {projects.map((project, index) => (
           <Reveal
             as="a"
             href={`https://github.com/ShehanJay19/${project.name}`}
             target="_blank"
             rel="noopener noreferrer"
             delay={index * 80}
-            className="project-row"
+            className="project-feature"
             key={project.name}
           >
-            <span className="row-number">{project.number}</span>
-            <h3>{project.title}</h3>
-            <FiArrowUpRight className="row-arrow" size={24} />
-            <div className="row-preview" aria-hidden="true">
+            <div className="feature-copy">
+              <span className="row-number">{project.number}</span>
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <div className="tag-list">
+                {project.tags.map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </div>
+            </div>
+            <div className="feature-card" aria-hidden="true">
               <ScreenshotSlot project={project} />
             </div>
+            <FiArrowDownRight className="row-arrow" size={24} />
           </Reveal>
         ))}
       </div>
