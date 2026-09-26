@@ -495,29 +495,20 @@ body {
 }
 
 .feature-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
   width: 250px;
   height: 170px;
   background: var(--paper);
   color: var(--paper-foreground);
   transform: rotate(-4deg);
+  border-radius: 6px;
+  overflow: hidden;
   box-shadow: 0 18px 40px -18px oklch(0.1 0 0 / 60%);
 }
 
-.feature-card span {
-  font-size: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: color-mix(in oklab, var(--paper-foreground) 55%, transparent);
-  text-align: center;
-}
-
-.feature-card svg {
-  color: var(--primary);
+.feature-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .project-feature .row-arrow {
@@ -525,7 +516,36 @@ body {
   color: var(--foreground);
 }
 
+/* Screenshot slot: shows the real screenshot once one is added, and a
+   quiet placeholder in the meantime so the space it will occupy is
+   already reserved and visible. */
+.screenshot-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px dashed var(--line-dark);
+  color: color-mix(in oklab, var(--paper-foreground) 45%, transparent);
+}
+
+.screenshot-placeholder svg {
+  color: var(--primary);
+  opacity: 0.7;
+}
+
+.screenshot-placeholder span {
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+  padding: 0 14px;
+}
+
 .project-row {
+  position: relative;
   display: grid;
   grid-template-columns: 48px 1fr 30px;
   gap: 28px;
@@ -540,6 +560,38 @@ body {
 .project-row:hover {
   background: color-mix(in oklab, var(--primary) 8%, transparent);
   padding-inline: 18px;
+}
+
+/* Screenshot preview: reserved space for a real screenshot, revealed on
+   hover/focus so the row list stays compact until a project is browsed. */
+.row-preview {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  right: 6%;
+  width: 240px;
+  height: 155px;
+  background: var(--paper);
+  color: var(--paper-foreground);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 24px 50px -20px oklch(0.1 0 0 / 55%);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) rotate(-3deg) scale(0.94);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.row-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-row:hover .row-preview,
+.project-row:focus-visible .row-preview {
+  opacity: 1;
+  transform: translateY(-50%) rotate(-3deg) scale(1);
 }
 
 .project-row .row-number {
@@ -678,15 +730,30 @@ body {
   gap: 8px;
 }
 
-.principles .skill-icons span {
+.skill-chip {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 26px;
-  height: 26px;
+  gap: 9px;
+  padding: 10px 14px;
   border: 1px solid var(--line-dark);
-  color: var(--muted-foreground);
-  font-size: 13px;
+  border-radius: 30px;
+  color: var(--foreground);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.skill-chip svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--primary);
+}
+
+.skill-chip:hover {
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 /* ---------------------------------------------------------------------- */
@@ -962,6 +1029,9 @@ footer.site-footer a {
     grid-template-columns: 32px 1fr 22px;
     gap: 12px;
     padding: 26px 0;
+  }
+  .row-preview {
+    display: none;
   }
   .project-row:hover {
     padding-inline: 8px;

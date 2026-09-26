@@ -1,4 +1,4 @@
-import { FiArrowUpRight, FiArrowDownRight, FiCode } from "react-icons/fi";
+import { FiArrowUpRight, FiArrowDownRight, FiImage } from "react-icons/fi";
 import Reveal from "./Reveal";
 
 const projects = [
@@ -10,33 +10,52 @@ const projects = [
       "A multi-agent research pipeline: a planner decomposes questions, parallel searcher agents gather sources, a critic fact-checks and flags contradictions, and a writer produces a cited report.",
     tags: ["Python", "Multi-Agent", "LLM"],
     featured: true,
+    screenshot: null,
   },
   {
     number: "02",
     name: "smart-resume-analyzer",
     title: "Smart Resume Analyzer",
+    screenshot: null,
   },
   {
     number: "03",
     name: "ai-proctoring-system",
     title: "AI Proctoring System",
+    screenshot: null,
   },
   {
     number: "04",
     name: "Real-Time-Object-Detection-Security-System",
     title: "Real-Time Object Detection",
+    screenshot: null,
   },
   {
     number: "05",
     name: "Credit-Crad-Fraud-Detetction",
     title: "Credit Card Fraud Detection",
+    screenshot: null,
   },
   {
     number: "06",
     name: "SpamSheild",
     title: "SpamShield",
+    screenshot: null,
   },
 ];
+
+function ScreenshotSlot({ project }) {
+  if (project.screenshot) {
+    return <img src={project.screenshot} alt={`${project.title} screenshot`} />;
+  }
+
+  return (
+    <div className="screenshot-placeholder">
+      <FiImage size={22} strokeWidth={1.4} />
+      <span>Screenshot coming soon</span>
+    </div>
+  );
+}
 
 export default function Work() {
   const [feature, ...rest] = projects;
@@ -75,9 +94,7 @@ export default function Work() {
             </div>
           </div>
           <div className="feature-card" aria-hidden="true">
-            <span>designed to make a difference</span>
-            <FiCode size={46} strokeWidth={1.4} />
-            <span>ideas → meaningful experiences</span>
+            <ScreenshotSlot project={feature} />
           </div>
           <FiArrowDownRight className="row-arrow" size={24} />
         </Reveal>
@@ -95,6 +112,9 @@ export default function Work() {
             <span className="row-number">{project.number}</span>
             <h3>{project.title}</h3>
             <FiArrowUpRight className="row-arrow" size={24} />
+            <div className="row-preview" aria-hidden="true">
+              <ScreenshotSlot project={project} />
+            </div>
           </Reveal>
         ))}
       </div>

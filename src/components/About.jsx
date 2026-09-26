@@ -109,8 +109,9 @@ export default function About() {
             <h3>{group.label}</h3>
             <div className="skill-icons">
               {group.items.map((item) => (
-                <span key={item.name} title={item.name}>
+                <span className="skill-chip" key={item.name}>
                   <item.Icon />
+                  {item.name}
                 </span>
               ))}
             </div>
